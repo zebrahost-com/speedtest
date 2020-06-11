@@ -30,7 +30,7 @@ COPY docker/entrypoint.sh /
 
 # Prepare environment variabiles defaults
 
-ENV TITLE=ZebraHost Speed Test
+ENV TITLE="ZebraHost Speed Test"
 ENV MODE=standalone
 ENV PASSWORD=password
 ENV TELEMETRY=true
