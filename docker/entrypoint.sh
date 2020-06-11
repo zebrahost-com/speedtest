@@ -60,4 +60,6 @@ fi
 echo "Done, Starting APACHE"
 
 # This runs apache
+certbot --apache -d "$DOMAIN" --agree-tos -m "$EMAIL" -n --redirect
+/etc/init.d/apache2 stop
 apache2-foreground
