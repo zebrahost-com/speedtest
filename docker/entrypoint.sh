@@ -61,7 +61,7 @@ if [ "$WEBPORT" != "80" ]; then
   sed -i "s/^Listen 80\$/Listen $WEBPORT/g" /etc/apache2/ports.conf
   sed -i "s/*:80>/*:$WEBPORT>/g" /etc/apache2/sites-available/000-default.conf 
 fi
-
+echo "ServerName $DOMAIN" >> /etc/apache2/apache2.conf
 echo "Done, Starting APACHE"
 
 # This runs apache

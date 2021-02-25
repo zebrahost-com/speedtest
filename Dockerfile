@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
         libpng-dev \
         wget \
         certbot \
+	cron \
         python-certbot-apache\
     && docker-php-ext-install -j$(nproc) iconv \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
@@ -39,7 +40,7 @@ ENV TELEMETRY=true
 ENV ENABLE_ID_OBFUSCATION=true
 ENV REDACT_IP_ADDRESSES=false
 ENV WEBPORT=80
-ENV DOMAIN=kansascity.speedtest.zerbahost.com
+ENV DOMAIN=altoona.speedtest.zerbahost.com
 ENV EMAIL=support@zebrahost.com
 # Final touches
 
