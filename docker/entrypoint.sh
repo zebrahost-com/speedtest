@@ -9,6 +9,9 @@ rm -rf /var/www/html/*
 # Copy frontend files
 cp /speedtest/*.js /var/www/html/
 
+# Copy favicon
+cp /speedtest/favicon.ico /var/www/html/
+
 # Set up backend side for standlone modes
 if [ "$MODE" == "standalone" ]; then
   cp -r /speedtest/backend/ /var/www/html/backend
@@ -51,11 +54,13 @@ if [[ "$TELEMETRY" == "true" && ( "$MODE" == "frontend" || "$MODE" == "standalon
   chown www-data /database/
 fi
 
+chown -R www-data /var/www/html/*
+
 # Allow selection of Apache port for network_mode: host
 if [ "$WEBPORT" != "80" ]; then
-  sed -i "s/80/$WEBPORT/g" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
+  sed -i "s/^Listen 80\$/Listen $WEBPORT/g" /etc/apache2/ports.conf
+  sed -i "s/*:80>/*:$WEBPORT>/g" /etc/apache2/sites-available/000-default.conf 
 fi
-
 
 echo "Done, Starting APACHE"
 

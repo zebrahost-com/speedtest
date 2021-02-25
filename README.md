@@ -7,14 +7,14 @@ This is the Docker version of LibreSpeed.
 See the included `doc.md` or the wiki for instructions on how to use it.
 
 ## Go backend
-A Go implementation is available in the `go` branch, maintained by [Maddie Zhan](https://github.com/maddie).
+A Go implementation is available in the [`speedtest-go`](https://github.com/librespeed/speedtest-go) repo, maintained by [Maddie Zhan](https://github.com/maddie).
 
 ## Donate
 [![Donate with Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/fdossena/donate)  
 [Donate with PayPal](https://www.paypal.me/sineisochronic)  
 
 ## License
-Copyright (C) 2016-2020 Federico Dossena
+Copyright (C) 2016-2021 Federico Dossena
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by

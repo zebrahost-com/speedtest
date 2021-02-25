@@ -1,4 +1,4 @@
-FROM php:7.2-apache
+FROM php:7.4-apache
 
 # Install extensions
 RUN apt-get update && apt-get install -y \
@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
         certbot \
         python-certbot-apache\
     && docker-php-ext-install -j$(nproc) iconv \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd
 
 # Prepare files and folders
@@ -23,6 +23,8 @@ COPY results/*.php /speedtest/results/
 COPY results/*.ttf /speedtest/results/
 
 COPY *.js /speedtest/
+COPY favicon.ico /speedtest/
+
 COPY docker/servers.json /servers.json
 
 COPY docker/*.php /speedtest/
